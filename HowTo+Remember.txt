@@ -1,0 +1,11 @@
+------------How To-----------------
+-App.vue 파일에서 Coding 이 이루어짐
+-npm run serve 를 통해 localhost://???? 서버 생성 후 ctrl+LClick 통해 확인
+
+
+
+
+-------------Remember-----------------
+-App.vue 즉 .vue 확장자 파일은 컴퓨터가 열 수 없음 대신에 이를 index.html 안으로 
+App.vue 를 컴파일시켜서 다 때려박아서 html 형태로 우리눈에 보여짐
+- html 로 박아넣는 작업을 main.js 에서 하고있음.
