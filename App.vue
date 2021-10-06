@@ -1,10 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <div>
+  <div class="menu">
+    <a v-for="(a,i) in 메뉴들" :key="i">{{a}}</a>
+    <!-- 반복문 사용시에 v-for을 사용하는데 형태 -> v-for="작명 in 반복횟수" :key="작명" 꼴로 사용한다  -->
+    <!-- 즉, 작명과 같이 이름을 작명하고 그에대한 key에 대해서도 작성할것 -->
+    <!-- Vue 반복문의 특징 : array/object 를 v-for 다음 반복 횟수 즉 작명 in ??? 부분에 집어넣게 되면 array또는 object 안의 데이터 갯수만큼 반복 -->
+    <!-- Vue 반복문의 특징 : v-for="작명" in "메뉴들" :key="작명" 과 같이 입력시에 반복문이 하나씩 돌때마다 메뉴들 안의 하나하나의 데이터로 작명이 바뀐다 -->
+    <!-- 따라서 다음과 같이 작성했을때 반복문이 3번 돌면서 Home Shop About 를 순서대로 출력하게된다 -->
+    <!-- 보통 Vue 반복문의 형태 : v-for"(a,i) in 메뉴들" :key="i" 로 사용하는데 이 때 왼쪽 변수는 array 내의 데이터(메뉴들의데이터), 오른쪽 변수는 1씩 증가하는 정수(원래 기존 i) -->
+  </div>
+
+  
+
+
+<!-- //아래와 같이 하드코딩 되어있던 div 3개를 v-for 사용해 하나로 축약 -->
+  <div v-for="(a,i) in products" :key="i">
+    <h4>{{products[i]}}</h4>
+    <p>50만원(가격 일단 고정)</p>
+  </div>
+
+  <!-- <div>
     <h4 :style='스타일'>{{products[0]}}</h4>
     <p>{{price1}} 만원</p>
-    <!-- 밑에 데이터 보관함인 return {} 내부에 작성했던 data 를 그대로 HTMl 에 꽂아넣는식으로 사용하고 싶다면
-    {{}} 중괄호 두개 안에 내가 등록한 데이터의 이름만 넣어주면 그대로 사용 가능 -->
+    밑에 데이터 보관함인 return {} 내부에 작성했던 data 를 그대로 HTMl 에 꽂아넣는식으로 사용하고 싶다면
+    {{}} 중괄호 두개 안에 내가 등록한 데이터의 이름만 넣어주면 그대로 사용 가능
   </div>
 
   <div>
@@ -15,7 +33,7 @@
   <div>
     <h4 :style='스타일'>{{products[2]}}</h4>
     <p>가격은 아무거나</p>
-  </div>
+  </div> -->
 </template>
 
 
@@ -32,7 +50,8 @@ export default {
       price2:34,
       name1:'휴아인',
       name2:'더존',
-      스타일:'color:red',//스타일 : 'color:red' 와 같이 속성에 대한 부분도 데이터바인딩 할 수 있고, 위에서 사용할때는 :style='스타일'과 같이 사용하면 된다
+      //스타일:'color:red',//스타일 : 'color:red' 와 같이 속성에 대한 부분도 데이터바인딩 할 수 있고, 위에서 사용할때는 :style='스타일'과 같이 사용하면 된다
+      메뉴들 : ['Home','Shop','About'],
       products : ['역삼동원룸','천호동원룸','마포구원룸'],
     }
   },
@@ -52,8 +71,20 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+.menu
+{
+  background:darkslateblue;
+  padding:15px;
+  border-radius:5px;
+}
+
+.menu a{
+  color:white;
+  padding:20px;
 }
 </style>
+
 
 <!--template 안에 HTML 짜고, script 안에 JS 짜고, style 안에 CSS 짠다-->
